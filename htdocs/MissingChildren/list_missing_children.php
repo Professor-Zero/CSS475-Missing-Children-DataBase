@@ -42,7 +42,7 @@ require_once 'header.inc.php';
         $stmt->bind_result($missingChildNo,$firstName,$lastName);
         echo "<ul>";
         while ($stmt->fetch()) {
-            echo '<li><a href="show_customer.php?id='  . $missingChildNo . '">' . $firstName . " ". $lastName . '</a></li>';
+            echo '<li><a href="show_missing_child.php?id='  . $missingChildNo . '">' . $firstName . " ". $lastName . '</a></li>';
         }
         echo "</ul>";
     }
