@@ -1,10 +1,10 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: MKochanski
- * Date: 7/24/2018
- * Time: 3:37 PM
- */
+ * User: moabdi21@uw.edu
+ * Date: 6/8/2019
+ * Time: 2:30 PM
+*/
 ?>
 <!-- This is a common navigation base to call different web pages on the website -->
 <h1 id="main-header">Missing Children Database Program</h1>

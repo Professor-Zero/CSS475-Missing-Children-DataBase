@@ -1,8 +1,10 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: TEAM 6
- */
+ * User: moabdi21@uw.edu
+ * Date: 6/8/2019
+ * Time: 2:30 PM
+*/
 require_once 'config.inc.php';
 // Get Customer Number
 $id = $_GET['id'];
@@ -42,8 +44,8 @@ require_once 'header.inc.php';
 
 	// Prepare SQL using Parameterized Form (Safe from SQL Injections)
     $sql = "SELECT M.missingChildNo,firstName,lastName,dateOfBirth,ageOfDisappearnce,presentMentalState,height,weight,genderCode,raceCode,eyeColorCode,hairColorCode,M.photoNo,image\n"
-        . "            FROM missingchild M\n"
-        . "            INNER JOIN  photo P ON M.missingChildNo=P.missingChildNo\n"
+        . "            FROM MissingChild M\n"
+        . "            INNER JOIN  Photo P ON M.missingChildNo=P.missingChildNo\n"
         . "            WHERE M.missingChildNo=$id";
          //"WHERE M.MissingChildNo = ?";
     $stmt = $conn->stmt_init();

@@ -1,10 +1,10 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: MKochanski
- * Date: 7/24/2018
- * Time: 2:47 PM
- */
+ * User: moabdi21@uw.edu
+ * Date: 6/8/2019
+ * Time: 2:30 PM
+*/
 $servername = 'localhost';//'vergil.u.washington.edu'; // Your Server (if noot)
 $username = 'root';
 $password = '';

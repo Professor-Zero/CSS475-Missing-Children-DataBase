@@ -1,10 +1,10 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: MKochanski
- * Date: 7/24/2018
- * Time: 3:07 PM
- */
+ * User: moabdi21@uw.edu
+ * Date: 6/8/2019
+ * Time: 2:30 PM
+*/
 require_once 'config.inc.php';
 // Get Customer Number
 $id = $_GET['id'];
@@ -52,7 +52,7 @@ require_once 'header.inc.php';
             echo "<div><i>Specify a new name</i></div>";
         else {
             /* perform update using safe parameterized sql */
-            $sql = "UPDATE missingchild SET firstName='$firstName' WHERE missingChildNo=$id";
+            $sql = "UPDATE MissingChild SET firstName='$firstName' WHERE missingChildNo=$id";
             $stmt = $conn->stmt_init();
             if (!$stmt->prepare($sql)) {
                 echo "failed to prepare";
@@ -70,8 +70,8 @@ require_once 'header.inc.php';
 
     /* Refresh the Data */
     $sql = "SELECT M.missingChildNo,firstName,lastName,dateOfBirth,ageOfDisappearnce,presentMentalState,height,weight,genderCode,raceCode,eyeColorCode,hairColorCode,M.photoNo,image\n"
-        . "            FROM missingchild M\n"
-        . "            INNER JOIN  photo P ON M.missingChildNo=P.missingChildNo\n"
+        . "            FROM MissingChild M\n"
+        . "            INNER JOIN  Photo P ON M.missingChildNo=P.missingChildNo\n"
         . "            WHERE M.missingChildNo=$id";
     $stmt = $conn->stmt_init();
     if (!$stmt->prepare($sql)) {
