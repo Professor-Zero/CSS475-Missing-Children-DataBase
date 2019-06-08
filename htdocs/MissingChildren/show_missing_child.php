@@ -46,7 +46,7 @@ require_once 'header.inc.php';
     $sql = "SELECT M.missingChildNo,firstName,lastName,dateOfBirth,ageOfDisappearnce,presentMentalState,height,weight,genderCode,raceCode,eyeColorCode,hairColorCode,M.photoNo,image\n"
         . "            FROM MissingChild M\n"
         . "            INNER JOIN  Photo P ON M.missingChildNo=P.missingChildNo\n"
-        . "            WHERE M.missingChildNo=$id";
+        . "            WHERE M.missingChildNo=?";
          //"WHERE M.MissingChildNo = ?";
     $stmt = $conn->stmt_init();
     if (!$stmt->prepare($sql)) {
@@ -55,7 +55,7 @@ require_once 'header.inc.php';
     else {
 		
 		// Bind Parameters from User Input
-        //$stmt->bind_param('s',$id, $firstName, $lastName);
+        $stmt->bind_param('i',$id);
 		
 		// Execute the Statement
         $stmt->execute();
@@ -88,9 +88,9 @@ require_once 'header.inc.php';
                     echo "<b class='mc-detail'>Eye Color: </b>". $eyeColorCode . '</br>';
                     echo "<b class='mc-detail'>Hair Color: </b>". $hairColorCode . '</br>';
                     if($dateOfBirth == "" || $dateOfBirth == NULL)
-                        echo "<b class='mc-detail'>Date of Birth: </b>". $dateOfBirth. '</br>';
-                    else 
                         echo "<b class='mc-detail'>Date of Birth: </b>". 'Unknown'. '</br>';
+                    else 
+                        echo "<b class='mc-detail'>Date of Birth: </b>". $dateOfBirth . '</br>';
                     if($presentMentalState == "" || $presentMentalState == NULL)
                         echo "<b class='mc-detail'>Present Mental State:</b> " . "Unknown";
                     else 

@@ -44,22 +44,27 @@ require_once 'header.inc.php';
 	// Check the Request is an Update from User -- Submitted via Form
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $firstName = $_POST['firstName'];
-        if ($firstName === null)
+        $lastName = $_POST['lastName'];
+        $dateOfBirth = $_POST['dateOfBirth'];
+        $weight = $_POST['weight'];
+        $height = $_POST['height'];
+
+        if ($firstName === null || $lastName === null || $dateOfBirth === null || $weight === null || $height === null)
             echo "<div><i>Specify a new name</i></div>";
-        else if ($firstName === false)
+        else if ($firstName === false || $lastName === false || $dateOfBirth === false || $weight === false || $height === false)
             echo "<div><i>Specify a new name</i></div>";
-        else if (trim($firstName) === "")
+        else if (trim($firstName) === "" || trim($lastName) === "" || $weight < 0 || $height < 0)
             echo "<div><i>Specify a new name</i></div>";
         else {
             /* perform update using safe parameterized sql */
-            $sql = "UPDATE MissingChild SET firstName='$firstName' WHERE missingChildNo=$id";
+            $sql = "UPDATE MissingChild SET firstName='$firstName', lastName='$lastName', dateOfBirth='$dateOfBirth', height='$height', weight='$weight' WHERE missingChildNo=?";
             $stmt = $conn->stmt_init();
             if (!$stmt->prepare($sql)) {
                 echo "failed to prepare";
             } else {
 				
 				// Bind user input to statement
-                //$stmt->bind_param('ss', $firstName,$id);
+                $stmt->bind_param('i', $id);
 				
 				// Execute statement and commit transaction
                 $stmt->execute();
@@ -72,13 +77,13 @@ require_once 'header.inc.php';
     $sql = "SELECT M.missingChildNo,firstName,lastName,dateOfBirth,ageOfDisappearnce,presentMentalState,height,weight,genderCode,raceCode,eyeColorCode,hairColorCode,M.photoNo,image\n"
         . "            FROM MissingChild M\n"
         . "            INNER JOIN  Photo P ON M.missingChildNo=P.missingChildNo\n"
-        . "            WHERE M.missingChildNo=$id";
+        . "            WHERE M.missingChildNo=?";
     $stmt = $conn->stmt_init();
     if (!$stmt->prepare($sql)) {
         echo "failed to prepare";
     }
     else {
-        //$stmt->bind_param('s',$id);
+        $stmt->bind_param('i',$id);
         $stmt->execute();
         $stmt->bind_result($missingChildNo,$firstName,$lastName,$dateOfBirth,$ageOfDisappearnce,$presentMentalState,$height,$weight,$genderCode,$raceCode,$eyeColorCode,$hairColorCode,$photoNo,$image);
         ?>
@@ -98,9 +103,9 @@ require_once 'header.inc.php';
                     echo "<b class='mc-detail'>Eye Color: </b>". $eyeColorCode . '</br>';
                     echo "<b class='mc-detail'>Hair Color: </b>". $hairColorCode . '</br>';
                     if($dateOfBirth == "" || $dateOfBirth == NULL)
-                        echo "<b class='mc-detail'>Date of Birth: </b>". $dateOfBirth. '</br>';
-                    else 
                         echo "<b class='mc-detail'>Date of Birth: </b>". 'Unknown'. '</br>';
+                    else 
+                        echo "<b class='mc-detail'>Date of Birth: </b>". $dateOfBirth . '</br>';
                     if($presentMentalState == "" || $presentMentalState == NULL)
                         echo "<b class='mc-detail'>Present Mental State:</b> " . "Unknown";
                     else 
@@ -109,8 +114,22 @@ require_once 'header.inc.php';
 
         }
     ?><br><br>
-            New First Name: <input type="text" name="firstName">
-            <button type="submit">Update</button>
+            <div id="mc-form-body">
+                <div id="mc-form-title">Missing Child Form</div>
+                    <div>
+                        First Name: <input type="text" name="firstName" value="<?= $firstName ?>">
+                        Last Name: <input type="text" name="lastName" value="<?= $lastName ?>">
+                    </div>
+                    <br>
+                    <div>
+                        Date of Birth: <input type="date" name="dateOfBirth" value="<?= $dateOfBirth ?>">
+                        <br>
+                        height: <input type="number" name="height" value="<?= $height ?>">
+                        <br>
+                        weight: <input type="number" name="weight" value="<?= $weight ?>">
+                    </div>
+                <button type="submit">Update</button>
+            <div>
         </form>
     <?php
     }
