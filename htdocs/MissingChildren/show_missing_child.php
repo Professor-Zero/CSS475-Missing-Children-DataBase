@@ -28,7 +28,7 @@ if ($id === null) {
 require_once 'header.inc.php';
 ?>
 <div>
-    <h2>Show Missing Child</h2>
+    <h2 id="show-missing-child">Missing Child</h2>
     <?php
 
     //echo $id;
@@ -102,7 +102,7 @@ require_once 'header.inc.php';
         <br/>
         </div>
         <div>
-            <a href="update_customer.php?id=<?= $missingChildNo ?>">Update Customer</a>
+            <a href="update_missing_child.php?id=<?= $missingChildNo ?>">Update Missing Child</a>
         </div>
     <?php
     }

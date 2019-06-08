@@ -9,7 +9,7 @@
     float: left;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
+    padding: 5px 16px;
     text-decoration: none;
     font-size: 17px;
 }
@@ -37,7 +37,7 @@
 }
 
 #mc-b1 {
-    padding-right:5;
+    padding-right:auto;
 
 }
 
@@ -67,4 +67,17 @@
 
 .mc-detail {
     color:rgb(201, 31, 31);
+}
+
+#show-missing-child {
+    text-align: left;
+
+}
+
+#main-header {
+    color:white;
+    background-color: #333;
+    margin:0;
+    padding:10px;
+    font-family: 'Arial Black';
 }

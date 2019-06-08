@@ -16,7 +16,8 @@ require_once 'header.inc.php';
 ?>
 <div>
     <h2>About</h2>
-    <div>Welcome to our Missing Children Database.</div>
+    <div>Welcome to Team 6 Missing Children Database.</div>
+    <div><B>Created by: </B> Mohamed Abdi, Mohamed Ahmed, James Pfleger, Andy Tran</div>
 </div>
 </body>
 </html>

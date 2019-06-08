@@ -85,3 +85,29 @@
 9:44:58 PM  [main] 	Deinitializing Modules
 9:44:58 PM  [main] 	Deinitializing Control Panel
 
+9:49:30 PM  [main] 	Initializing Control Panel
+9:49:30 PM  [main] 	Windows Version:  Home  64-bit
+9:49:30 PM  [main] 	XAMPP Version: 7.3.6
+9:49:30 PM  [main] 	Control Panel Version: 3.2.4  [ Compiled: Mar 7th 2019 ]
+9:49:30 PM  [main] 	You are not running with administrator rights! This will work for
+9:49:30 PM  [main] 	most application stuff but whenever you do something with services
+9:49:30 PM  [main] 	there will be a security dialogue or things will break! So think 
+9:49:30 PM  [main] 	about running this application with administrator rights!
+9:49:30 PM  [main] 	XAMPP Installation Directory: "c:\users\moabd\onedrive\desktop\missingchildrendb\"
+9:49:30 PM  [main] 	Checking for prerequisites
+9:49:33 PM  [main] 	All prerequisites found
+9:49:33 PM  [main] 	Initializing Modules
+9:49:33 PM  [main] 	Starting Check-Timer
+9:49:33 PM  [main] 	Control Panel Ready
+9:49:35 PM  [Apache] 	Attempting to start Apache app...
+9:49:35 PM  [Apache] 	Status change detected: running
+9:49:42 PM  [mysql] 	Attempting to start MySQL app...
+9:49:42 PM  [mysql] 	Status change detected: running
+11:59:02 PM  [mysql] 	Attempting to stop MySQL app...
+11:59:02 PM  [mysql] 	Status change detected: stopped
+11:59:02 PM  [Apache] 	Attempting to stop Apache (PID: 34000)
+11:59:03 PM  [Apache] 	Attempting to stop Apache (PID: 23944)
+11:59:03 PM  [Apache] 	Status change detected: stopped
+11:59:05 PM  [main] 	Deinitializing Modules
+11:59:05 PM  [main] 	Deinitializing Control Panel
+
